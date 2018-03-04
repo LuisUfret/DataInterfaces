@@ -13,9 +13,9 @@ public class Fibonacci extends Progression {
 	}
 
 	@Override
-	public double nextValue() {
-        // add the necessary code here
-		//...
+	public double nextValue() throws IllegalStateException{
+		if(!this.firstValue)
+			throw new IllegalStateException("You haven't executed the firstValue method.");
 		current+=prev;
 		prev= current - prev;
 		return current;
@@ -27,5 +27,14 @@ public class Fibonacci extends Progression {
 		prev = 0; 
 		return value; 
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.equals(firstValue())) {return true;}
+		
+		return false;
+		
+	}
+	
 
 }
